@@ -1,0 +1,21 @@
+{
+    "name": "neutrino_api/neutrino_api_client",
+    "autoload": {
+        "psr-4": {
+            "NeutrinoAPI\\": "src/client"
+        }
+    },
+    "authors": [
+        {
+            "name": "Neutrino API",
+            "email": "ops@neutrinoapi.com"
+        }
+    ],
+    "require": {
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "version": "4.6.8",
+    "description": "PHP client using the libcURL extension",
+    "license": "MIT"
+}

@@ -29,13 +29,13 @@ if ($apiResponse->isOK()) {
     echo "API Response OK: \n";
     
     // The IP address or host name
-    echo "host: ", (isset($data['host'])) ? var_export($data['host'], true) : "NULL", "\n";
+    echo "host: ", var_export($data['host'], true), "\n";
     
     // Is this host blacklisted
-    echo "is-listed: ", (isset($data['is-listed'])) ? var_export($data['is-listed'], true) : "NULL", "\n";
+    echo "is-listed: ", var_export($data['is-listed'], true), "\n";
     
     // The number of DNSBLs the host is listed on
-    echo "list-count: ", (isset($data['list-count'])) ? var_export($data['list-count'], true) : "NULL", "\n";
+    echo "list-count: ", var_export($data['list-count'], true), "\n";
     
     // Array of objects for each DNSBL checked
     $lists = $data['lists'];
@@ -43,25 +43,25 @@ if ($apiResponse->isOK()) {
     foreach ($lists as $listsItem) {
 
         // True if the host is currently black-listed
-        echo "    is-listed: ", (isset($listsItem['is-listed'])) ? var_export($listsItem['is-listed'], true) : "NULL", "\n";
+        echo "    is-listed: ", var_export($listsItem['is-listed'], true), "\n";
 
         // The hostname of the DNSBL
-        echo "    list-host: ", (isset($listsItem['list-host'])) ? var_export($listsItem['list-host'], true) : "NULL", "\n";
+        echo "    list-host: ", var_export($listsItem['list-host'], true), "\n";
 
         // The name of the DNSBL
-        echo "    list-name: ", (isset($listsItem['list-name'])) ? var_export($listsItem['list-name'], true) : "NULL", "\n";
+        echo "    list-name: ", var_export($listsItem['list-name'], true), "\n";
 
         // The list rating [1-3] with 1 being the best rating and 3 the lowest rating
-        echo "    list-rating: ", (isset($listsItem['list-rating'])) ? var_export($listsItem['list-rating'], true) : "NULL", "\n";
+        echo "    list-rating: ", var_export($listsItem['list-rating'], true), "\n";
 
         // The DNSBL server response time in milliseconds
-        echo "    response-time: ", (isset($listsItem['response-time'])) ? var_export($listsItem['response-time'], true) : "NULL", "\n";
+        echo "    response-time: ", var_export($listsItem['response-time'], true), "\n";
 
         // The specific return code for this listing (only set if listed)
-        echo "    return-code: ", (isset($listsItem['return-code'])) ? var_export($listsItem['return-code'], true) : "NULL", "\n";
+        echo "    return-code: ", var_export($listsItem['return-code'], true), "\n";
 
         // The TXT record returned for this listing (only set if listed)
-        echo "    txt-record: ", (isset($listsItem['txt-record'])) ? var_export($listsItem['txt-record'], true) : "NULL", "\n";
+        echo "    txt-record: ", var_export($listsItem['txt-record'], true), "\n";
         echo "\n";
     }
 } else {

@@ -36,37 +36,37 @@ if ($apiResponse->isOK()) {
     $data = $apiResponse->getData();
     echo "API Response OK: \n";
     
-    // The fully formatted address
-    echo "address: ", (isset($data['address'])) ? var_export($data['address'], true) : "NULL", "\n";
+    // The complete address using comma-separated values
+    echo "address: ", var_export($data['address'], true), "\n";
     
     // The components which make up the address such as road, city, state, etc
-    echo "address-components: ", (isset($data['address-components'])) ? var_export($data['address-components'], true) : "NULL", "\n";
+    echo "address-components: ", var_export($data['address-components'], true), "\n";
     
     // The city of the location
-    echo "city: ", (isset($data['city'])) ? var_export($data['city'], true) : "NULL", "\n";
+    echo "city: ", var_export($data['city'], true), "\n";
     
     // The country of the location
-    echo "country: ", (isset($data['country'])) ? var_export($data['country'], true) : "NULL", "\n";
+    echo "country: ", var_export($data['country'], true), "\n";
     
     // The ISO 2-letter country code of the location
-    echo "country-code: ", (isset($data['country-code'])) ? var_export($data['country-code'], true) : "NULL", "\n";
+    echo "country-code: ", var_export($data['country-code'], true), "\n";
     
     // The ISO 3-letter country code of the location
-    echo "country-code3: ", (isset($data['country-code3'])) ? var_export($data['country-code3'], true) : "NULL", "\n";
+    echo "country-code3: ", var_export($data['country-code3'], true), "\n";
     
     // ISO 4217 currency code associated with the country
-    echo "currency-code: ", (isset($data['currency-code'])) ? var_export($data['currency-code'], true) : "NULL", "\n";
+    echo "currency-code: ", var_export($data['currency-code'], true), "\n";
     
     // True if these coordinates map to a real location
-    echo "found: ", (isset($data['found'])) ? var_export($data['found'], true) : "NULL", "\n";
+    echo "found: ", var_export($data['found'], true), "\n";
     
     // The location latitude
-    echo "latitude: ", (isset($data['latitude'])) ? var_export($data['latitude'], true) : "NULL", "\n";
+    echo "latitude: ", var_export($data['latitude'], true), "\n";
     
     // Array of strings containing any location tags associated with the address. Tags are additional
     // pieces of metadata about a specific location, there are thousands of different tags. Some
     // examples of tags: shop, office, cafe, bank, pub
-    echo "location-tags: ", (isset($data['location-tags'])) ? var_export($data['location-tags'], true) : "NULL", "\n";
+    echo "location-tags: ", var_export($data['location-tags'], true), "\n";
     
     // The detected location type ordered roughly from most to least precise, possible values are:
     // • address - indicates a precise street address
@@ -78,19 +78,25 @@ if ($apiResponse->isOK()) {
     // • natural - indicates a natural feature, for example a mountain peak or a waterway
     // • island - location is an island or archipelago
     // • administrative - indicates an administrative boundary such as a country, state or province
-    echo "location-type: ", (isset($data['location-type'])) ? var_export($data['location-type'], true) : "NULL", "\n";
+    echo "location-type: ", var_export($data['location-type'], true), "\n";
     
     // The location longitude
-    echo "longitude: ", (isset($data['longitude'])) ? var_export($data['longitude'], true) : "NULL", "\n";
+    echo "longitude: ", var_export($data['longitude'], true), "\n";
+    
+    // The formatted address using local standards suitable for printing on an envelope
+    echo "postal-address: ", var_export($data['postal-address'], true), "\n";
     
     // The postal code for the location
-    echo "postal-code: ", (isset($data['postal-code'])) ? var_export($data['postal-code'], true) : "NULL", "\n";
+    echo "postal-code: ", var_export($data['postal-code'], true), "\n";
+    
+    // The ISO 3166-2 region code for the location
+    echo "region-code: ", var_export($data['region-code'], true), "\n";
     
     // The state of the location
-    echo "state: ", (isset($data['state'])) ? var_export($data['state'], true) : "NULL", "\n";
+    echo "state: ", var_export($data['state'], true), "\n";
     
     // Map containing timezone details for the location
-    echo "timezone: ", (isset($data['timezone'])) ? var_export($data['timezone'], true) : "NULL", "\n";
+    echo "timezone: ", var_export($data['timezone'], true), "\n";
 } else {
     error_log(sprintf("API Error: %s, Error Code: %d, HTTP Status Code: %d", $apiResponse->getErrorMessage(), $apiResponse->getErrorCode(), $apiResponse->getStatusCode()));
     if (strlen($apiResponse->getErrorCause()) > 0) {

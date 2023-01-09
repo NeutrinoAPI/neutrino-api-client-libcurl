@@ -309,10 +309,12 @@ class NeutrinoAPIClient
      *
      * The parameters this API accepts are:
      *
-     * - width: The width to resize to (in px) while preserving aspect ratio
+     * - resize-mode: The resize mode to use
+     * - width: The width to resize to (in px)
      * - format: The output image format
-     * - image-url: The URL or Base64 encoded Data URL for the source image (you can also upload an image file directly in which case this field is ignored)
-     * - height: The height to resize to (in px) while preserving aspect ratio
+     * - image-url: The URL or Base64 encoded Data URL for the source image
+     * - bg-color: The image background color in hexadecimal notation (e.g. #0000ff)
+     * - height: The height to resize to (in px)
      *
      * @param string[] $params The API request parameters
      * @param string $outputFilePath
@@ -329,13 +331,15 @@ class NeutrinoAPIClient
      *
      * The parameters this API accepts are:
      *
+     * - resize-mode: The resize mode to use
      * - format: The output image format
-     * - width: If set resize the resulting image to this width (in px) while preserving aspect ratio
-     * - image-url: The URL or Base64 encoded Data URL for the source image (you can also upload an image file directly in which case this field is ignored)
+     * - width: If set resize the resulting image to this width (in px)
+     * - image-url: The URL or Base64 encoded Data URL for the source image
      * - position: The position of the watermark image
-     * - watermark-url: The URL or Base64 encoded Data URL for the watermark image (you can also upload an image file directly in which case this field is ignored)
+     * - watermark-url: The URL or Base64 encoded Data URL for the watermark image
      * - opacity: The opacity of the watermark (0 to 100)
-     * - height: If set resize the resulting image to this height (in px) while preserving aspect ratio
+     * - bg-color: The image background color in hexadecimal notation (e.g. #0000ff)
+     * - height: If set resize the resulting image to this height (in px)
      *
      * @param string[] $params The API request parameters
      * @param string $outputFilePath
@@ -370,7 +374,7 @@ class NeutrinoAPIClient
      * The parameters this API accepts are:
      *
      * - format: The data format
-     * - include-vpn: Include public VPN provider IP addresses
+     * - include-vpn: Include public VPN provider addresses
      * - cidr: Output IPs using CIDR notation
      * - ip6: Output the IPv6 version of the blocklist
      *
@@ -402,7 +406,7 @@ class NeutrinoAPIClient
     }
 
     /**
-     * Analyze and extract provider information for an IP address
+     * Execute a realtime network probe against an IPv4 or IPv6 address
      *
      * The parameters this API accepts are:
      *
@@ -496,26 +500,6 @@ class NeutrinoAPIClient
     public function qrCode(array $params, string $outputFilePath): APIResponse
     {
         return $this->execRequest('POST', 'qr-code', $params, $outputFilePath, 20);
-    }
-
-    /**
-     * Send a free-form message to any mobile device via SMS
-     *
-     * The parameters this API accepts are:
-     *
-     * - number: The phone number to send a message to
-     * - country-code: ISO 2-letter country code
-     * - limit: Limit the total number of SMS allowed to the supplied phone number
-     * - message: The SMS message to send
-     * - limit-ttl: Set the TTL in number of days that the 'limit' option will remember a phone number (the default is 1 day and the maximum is 365 days)
-     *
-     * @param string[] $params The API request parameters
-     * @return APIResponse
-     * @see <a href="https://www.neutrinoapi.com/api/sms-message">Documentation</a>
-     */
-    public function smsMessage(array $params): APIResponse
-    {
-        return $this->execRequest('POST', 'sms-message', $params, null, 30);
     }
 
     /**
@@ -676,8 +660,8 @@ class NeutrinoAPIClient
             return $apiResponse;
         }
 
-        // 200 OK
         if ($statusCode == 200) {
+            // 200 OK
             if (strpos($contentType, "application/json") !== false) {
                 if (isset($outputFilePath)) {
                     rewind($file);
@@ -692,9 +676,8 @@ class NeutrinoAPIClient
                     $apiResponse = APIResponse::ofHttpStatus($statusCode, $contentType, APIErrorCode::$API_GATEWAY_ERROR, $rawResponse);
                 }
             }
-        }
-        // Non-200 error received
-        if ($statusCode !== 200) {
+        } else {
+            // Non-200 error received
             if (isset($outputFilePath)) {
                 rewind($file);
                 $rawResponse = fread($file, filesize($outputFilePath));

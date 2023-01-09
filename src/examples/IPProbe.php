@@ -22,81 +22,81 @@ if ($apiResponse->isOK()) {
     echo "API Response OK: \n";
     
     // The age of the autonomous system (AS) in number of years since registration
-    echo "as-age: ", (isset($data['as-age'])) ? var_export($data['as-age'], true) : "NULL", "\n";
+    echo "as-age: ", var_export($data['as-age'], true), "\n";
     
     // The autonomous system (AS) CIDR range
-    echo "as-cidr: ", (isset($data['as-cidr'])) ? var_export($data['as-cidr'], true) : "NULL", "\n";
+    echo "as-cidr: ", var_export($data['as-cidr'], true), "\n";
     
     // The autonomous system (AS) ISO 2-letter country code
-    echo "as-country-code: ", (isset($data['as-country-code'])) ? var_export($data['as-country-code'], true) : "NULL", "\n";
+    echo "as-country-code: ", var_export($data['as-country-code'], true), "\n";
     
     // The autonomous system (AS) ISO 3-letter country code
-    echo "as-country-code3: ", (isset($data['as-country-code3'])) ? var_export($data['as-country-code3'], true) : "NULL", "\n";
+    echo "as-country-code3: ", var_export($data['as-country-code3'], true), "\n";
     
     // The autonomous system (AS) description / company name
-    echo "as-description: ", (isset($data['as-description'])) ? var_export($data['as-description'], true) : "NULL", "\n";
+    echo "as-description: ", var_export($data['as-description'], true), "\n";
     
     // Array of all the domains associated with the autonomous system (AS)
-    echo "as-domains: ", (isset($data['as-domains'])) ? var_export($data['as-domains'], true) : "NULL", "\n";
+    echo "as-domains: ", var_export($data['as-domains'], true), "\n";
     
     // The autonomous system (AS) number
-    echo "asn: ", (isset($data['asn'])) ? var_export($data['asn'], true) : "NULL", "\n";
+    echo "asn: ", var_export($data['asn'], true), "\n";
     
     // Full city name (if detectable)
-    echo "city: ", (isset($data['city'])) ? var_export($data['city'], true) : "NULL", "\n";
+    echo "city: ", var_export($data['city'], true), "\n";
     
     // ISO 2-letter continent code
-    echo "continent-code: ", (isset($data['continent-code'])) ? var_export($data['continent-code'], true) : "NULL", "\n";
+    echo "continent-code: ", var_export($data['continent-code'], true), "\n";
     
     // Full country name
-    echo "country: ", (isset($data['country'])) ? var_export($data['country'], true) : "NULL", "\n";
+    echo "country: ", var_export($data['country'], true), "\n";
     
     // ISO 2-letter country code
-    echo "country-code: ", (isset($data['country-code'])) ? var_export($data['country-code'], true) : "NULL", "\n";
+    echo "country-code: ", var_export($data['country-code'], true), "\n";
     
     // ISO 3-letter country code
-    echo "country-code3: ", (isset($data['country-code3'])) ? var_export($data['country-code3'], true) : "NULL", "\n";
+    echo "country-code3: ", var_export($data['country-code3'], true), "\n";
     
     // ISO 4217 currency code associated with the country
-    echo "currency-code: ", (isset($data['currency-code'])) ? var_export($data['currency-code'], true) : "NULL", "\n";
+    echo "currency-code: ", var_export($data['currency-code'], true), "\n";
     
     // The IPs host domain
-    echo "host-domain: ", (isset($data['host-domain'])) ? var_export($data['host-domain'], true) : "NULL", "\n";
+    echo "host-domain: ", var_export($data['host-domain'], true), "\n";
     
     // The IPs full hostname (PTR)
-    echo "hostname: ", (isset($data['hostname'])) ? var_export($data['hostname'], true) : "NULL", "\n";
+    echo "hostname: ", var_export($data['hostname'], true), "\n";
     
     // The IP address
-    echo "ip: ", (isset($data['ip'])) ? var_export($data['ip'], true) : "NULL", "\n";
+    echo "ip: ", var_export($data['ip'], true), "\n";
     
     // True if this is a bogon IP address such as a private network, local network or reserved address
-    echo "is-bogon: ", (isset($data['is-bogon'])) ? var_export($data['is-bogon'], true) : "NULL", "\n";
+    echo "is-bogon: ", var_export($data['is-bogon'], true), "\n";
     
     // True if this IP belongs to a hosting company. Note that this can still be true even if the
     // provider type is VPN/proxy, this occurs in the case that the IP is detected as both types
-    echo "is-hosting: ", (isset($data['is-hosting'])) ? var_export($data['is-hosting'], true) : "NULL", "\n";
+    echo "is-hosting: ", var_export($data['is-hosting'], true), "\n";
     
     // True if this IP belongs to an internet service provider. Note that this can still be true even if
     // the provider type is VPN/proxy, this occurs in the case that the IP is detected as both types
-    echo "is-isp: ", (isset($data['is-isp'])) ? var_export($data['is-isp'], true) : "NULL", "\n";
+    echo "is-isp: ", var_export($data['is-isp'], true), "\n";
     
     // True if this IP ia a proxy
-    echo "is-proxy: ", (isset($data['is-proxy'])) ? var_export($data['is-proxy'], true) : "NULL", "\n";
+    echo "is-proxy: ", var_export($data['is-proxy'], true), "\n";
     
     // True if this is a IPv4 mapped IPv6 address
-    echo "is-v4-mapped: ", (isset($data['is-v4-mapped'])) ? var_export($data['is-v4-mapped'], true) : "NULL", "\n";
+    echo "is-v4-mapped: ", var_export($data['is-v4-mapped'], true), "\n";
     
     // True if this is a IPv6 address. False if IPv4
-    echo "is-v6: ", (isset($data['is-v6'])) ? var_export($data['is-v6'], true) : "NULL", "\n";
+    echo "is-v6: ", var_export($data['is-v6'], true), "\n";
     
     // True if this IP ia a VPN
-    echo "is-vpn: ", (isset($data['is-vpn'])) ? var_export($data['is-vpn'], true) : "NULL", "\n";
+    echo "is-vpn: ", var_export($data['is-vpn'], true), "\n";
     
     // A description of the provider (usually extracted from the providers website)
-    echo "provider-description: ", (isset($data['provider-description'])) ? var_export($data['provider-description'], true) : "NULL", "\n";
+    echo "provider-description: ", var_export($data['provider-description'], true), "\n";
     
     // The domain name of the provider
-    echo "provider-domain: ", (isset($data['provider-domain'])) ? var_export($data['provider-domain'], true) : "NULL", "\n";
+    echo "provider-domain: ", var_export($data['provider-domain'], true), "\n";
     
     // The detected provider type, possible values are:
     // • isp - IP belongs to an internet service provider. This includes both mobile, home and
@@ -111,22 +111,22 @@ if ($apiResponse->isOK()) {
     // • commercial - IP belongs to a commercial entity such as a corporate headquarters or company
     //   office
     // • unknown - could not identify the provider type
-    echo "provider-type: ", (isset($data['provider-type'])) ? var_export($data['provider-type'], true) : "NULL", "\n";
+    echo "provider-type: ", var_export($data['provider-type'], true), "\n";
     
     // The website URL for the provider
-    echo "provider-website: ", (isset($data['provider-website'])) ? var_export($data['provider-website'], true) : "NULL", "\n";
+    echo "provider-website: ", var_export($data['provider-website'], true), "\n";
     
     // Full region name (if detectable)
-    echo "region: ", (isset($data['region'])) ? var_export($data['region'], true) : "NULL", "\n";
+    echo "region: ", var_export($data['region'], true), "\n";
     
     // ISO 3166-2 region code (if detectable)
-    echo "region-code: ", (isset($data['region-code'])) ? var_export($data['region-code'], true) : "NULL", "\n";
+    echo "region-code: ", var_export($data['region-code'], true), "\n";
     
     // True if this is a valid IPv4 or IPv6 address
-    echo "valid: ", (isset($data['valid'])) ? var_export($data['valid'], true) : "NULL", "\n";
+    echo "valid: ", var_export($data['valid'], true), "\n";
     
     // The domain of the VPN provider (may be empty if the VPN domain is not detectable)
-    echo "vpn-domain: ", (isset($data['vpn-domain'])) ? var_export($data['vpn-domain'], true) : "NULL", "\n";
+    echo "vpn-domain: ", var_export($data['vpn-domain'], true), "\n";
 } else {
     error_log(sprintf("API Error: %s, Error Code: %d, HTTP Status Code: %d", $apiResponse->getErrorMessage(), $apiResponse->getErrorCode(), $apiResponse->getStatusCode()));
     if (strlen($apiResponse->getErrorCause()) > 0) {

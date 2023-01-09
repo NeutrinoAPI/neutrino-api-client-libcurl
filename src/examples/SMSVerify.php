@@ -51,14 +51,14 @@ if ($apiResponse->isOK()) {
     echo "API Response OK: \n";
     
     // True if this a valid phone number
-    echo "number-valid: ", (isset($data['number-valid'])) ? var_export($data['number-valid'], true) : "NULL", "\n";
+    echo "number-valid: ", var_export($data['number-valid'], true), "\n";
     
     // The security code generated, you can save this code to perform your own verification or you can
     // use the Verify Security Code API
-    echo "security-code: ", (isset($data['security-code'])) ? var_export($data['security-code'], true) : "NULL", "\n";
+    echo "security-code: ", var_export($data['security-code'], true), "\n";
     
     // True if the SMS has been sent
-    echo "sent: ", (isset($data['sent'])) ? var_export($data['sent'], true) : "NULL", "\n";
+    echo "sent: ", var_export($data['sent'], true), "\n";
 } else {
     error_log(sprintf("API Error: %s, Error Code: %d, HTTP Status Code: %d", $apiResponse->getErrorMessage(), $apiResponse->getErrorCode(), $apiResponse->getStatusCode()));
     if (strlen($apiResponse->getErrorCause()) > 0) {

@@ -24,8 +24,8 @@ $params = array(
     //   environments where certain types of bad words are considered OK
     "catalog" => "strict",
 
-    // The content to scan. This can be either a URL to load from, a file upload or an HTML content
-    // string
+    // The content to scan. This can be either a URL to load from, a file upload (multipart/form-data)
+    // or an HTML content string
     "content" => "https://en.wikipedia.org/wiki/Profanity"
 );
 
@@ -35,16 +35,16 @@ if ($apiResponse->isOK()) {
     echo "API Response OK: \n";
     
     // An array of the bad words found
-    echo "bad-words-list: ", (isset($data['bad-words-list'])) ? var_export($data['bad-words-list'], true) : "NULL", "\n";
+    echo "bad-words-list: ", var_export($data['bad-words-list'], true), "\n";
     
     // Total number of bad words detected
-    echo "bad-words-total: ", (isset($data['bad-words-total'])) ? var_export($data['bad-words-total'], true) : "NULL", "\n";
+    echo "bad-words-total: ", var_export($data['bad-words-total'], true), "\n";
     
     // The censored content (only set if censor-character has been set)
-    echo "censored-content: ", (isset($data['censored-content'])) ? var_export($data['censored-content'], true) : "NULL", "\n";
+    echo "censored-content: ", var_export($data['censored-content'], true), "\n";
     
     // Does the text contain bad words
-    echo "is-bad: ", (isset($data['is-bad'])) ? var_export($data['is-bad'], true) : "NULL", "\n";
+    echo "is-bad: ", var_export($data['is-bad'], true), "\n";
 } else {
     error_log(sprintf("API Error: %s, Error Code: %d, HTTP Status Code: %d", $apiResponse->getErrorMessage(), $apiResponse->getErrorCode(), $apiResponse->getStatusCode()));
     if (strlen($apiResponse->getErrorCause()) > 0) {

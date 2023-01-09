@@ -49,62 +49,62 @@ if ($apiResponse->isOK()) {
     echo "API Response OK: \n";
     
     // If the client is a web browser which underlying browser engine does it use
-    echo "browser-engine: ", (isset($data['browser-engine'])) ? var_export($data['browser-engine'], true) : "NULL", "\n";
+    echo "browser-engine: ", var_export($data['browser-engine'], true), "\n";
     
     // If the client is a web browser which year was this browser version released
-    echo "browser-release: ", (isset($data['browser-release'])) ? var_export($data['browser-release'], true) : "NULL", "\n";
+    echo "browser-release: ", var_export($data['browser-release'], true), "\n";
     
     // The device brand / manufacturer
-    echo "device-brand: ", (isset($data['device-brand'])) ? var_export($data['device-brand'], true) : "NULL", "\n";
+    echo "device-brand: ", var_export($data['device-brand'], true), "\n";
     
     // The device display height in CSS 'px'
-    echo "device-height-px: ", (isset($data['device-height-px'])) ? var_export($data['device-height-px'], true) : "NULL", "\n";
+    echo "device-height-px: ", var_export($data['device-height-px'], true), "\n";
     
     // The device model
-    echo "device-model: ", (isset($data['device-model'])) ? var_export($data['device-model'], true) : "NULL", "\n";
+    echo "device-model: ", var_export($data['device-model'], true), "\n";
     
     // The device model code
-    echo "device-model-code: ", (isset($data['device-model-code'])) ? var_export($data['device-model-code'], true) : "NULL", "\n";
+    echo "device-model-code: ", var_export($data['device-model-code'], true), "\n";
     
     // The device display pixel ratio (the ratio of the resolution in physical pixels to the resolution
     // in CSS pixels)
-    echo "device-pixel-ratio: ", (isset($data['device-pixel-ratio'])) ? var_export($data['device-pixel-ratio'], true) : "NULL", "\n";
+    echo "device-pixel-ratio: ", var_export($data['device-pixel-ratio'], true), "\n";
     
     // The device display PPI (pixels per inch)
-    echo "device-ppi: ", (isset($data['device-ppi'])) ? var_export($data['device-ppi'], true) : "NULL", "\n";
+    echo "device-ppi: ", var_export($data['device-ppi'], true), "\n";
     
     // The average device price on release in USD
-    echo "device-price: ", (isset($data['device-price'])) ? var_export($data['device-price'], true) : "NULL", "\n";
+    echo "device-price: ", var_export($data['device-price'], true), "\n";
     
     // The year when this device model was released
-    echo "device-release: ", (isset($data['device-release'])) ? var_export($data['device-release'], true) : "NULL", "\n";
+    echo "device-release: ", var_export($data['device-release'], true), "\n";
     
     // The device display resolution in physical pixels (e.g. 720x1280)
-    echo "device-resolution: ", (isset($data['device-resolution'])) ? var_export($data['device-resolution'], true) : "NULL", "\n";
+    echo "device-resolution: ", var_export($data['device-resolution'], true), "\n";
     
     // The device display width in CSS 'px'
-    echo "device-width-px: ", (isset($data['device-width-px'])) ? var_export($data['device-width-px'], true) : "NULL", "\n";
+    echo "device-width-px: ", var_export($data['device-width-px'], true), "\n";
     
     // Is this a mobile device (e.g. a phone or tablet)
-    echo "is-mobile: ", (isset($data['is-mobile'])) ? var_export($data['is-mobile'], true) : "NULL", "\n";
+    echo "is-mobile: ", var_export($data['is-mobile'], true), "\n";
     
     // Is this a WebView / embedded software client
-    echo "is-webview: ", (isset($data['is-webview'])) ? var_export($data['is-webview'], true) : "NULL", "\n";
+    echo "is-webview: ", var_export($data['is-webview'], true), "\n";
     
     // The client software name
-    echo "name: ", (isset($data['name'])) ? var_export($data['name'], true) : "NULL", "\n";
+    echo "name: ", var_export($data['name'], true), "\n";
     
     // The full operating system name
-    echo "os: ", (isset($data['os'])) ? var_export($data['os'], true) : "NULL", "\n";
+    echo "os: ", var_export($data['os'], true), "\n";
     
     // The operating system family. The major OS families are: Android, Windows, macOS, iOS, Linux
-    echo "os-family: ", (isset($data['os-family'])) ? var_export($data['os-family'], true) : "NULL", "\n";
+    echo "os-family: ", var_export($data['os-family'], true), "\n";
     
     // The operating system full version
-    echo "os-version: ", (isset($data['os-version'])) ? var_export($data['os-version'], true) : "NULL", "\n";
+    echo "os-version: ", var_export($data['os-version'], true), "\n";
     
     // The operating system major version
-    echo "os-version-major: ", (isset($data['os-version-major'])) ? var_export($data['os-version-major'], true) : "NULL", "\n";
+    echo "os-version-major: ", var_export($data['os-version-major'], true), "\n";
     
     // The user agent type, possible values are:
     // • desktop
@@ -117,16 +117,16 @@ if ($apiResponse->isOK()) {
     // • library
     // • robot
     // • unknown
-    echo "type: ", (isset($data['type'])) ? var_export($data['type'], true) : "NULL", "\n";
+    echo "type: ", var_export($data['type'], true), "\n";
     
     // The user agent string
-    echo "ua: ", (isset($data['ua'])) ? var_export($data['ua'], true) : "NULL", "\n";
+    echo "ua: ", var_export($data['ua'], true), "\n";
     
     // The client software full version
-    echo "version: ", (isset($data['version'])) ? var_export($data['version'], true) : "NULL", "\n";
+    echo "version: ", var_export($data['version'], true), "\n";
     
     // The client software major version
-    echo "version-major: ", (isset($data['version-major'])) ? var_export($data['version-major'], true) : "NULL", "\n";
+    echo "version-major: ", var_export($data['version-major'], true), "\n";
 } else {
     error_log(sprintf("API Error: %s, Error Code: %d, HTTP Status Code: %d", $apiResponse->getErrorMessage(), $apiResponse->getErrorCode(), $apiResponse->getStatusCode()));
     if (strlen($apiResponse->getErrorCause()) > 0) {

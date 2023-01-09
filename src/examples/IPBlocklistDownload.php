@@ -17,9 +17,10 @@ $params = array(
     // The data format. Can be either CSV or TXT
     "format" => "csv",
 
-    // Include public VPN provider IP addresses, this option is only available for Tier 3 or higher
-    // accounts. WARNING: This option will add at least an additional 8 million IP addresses to the
-    // download if not using CIDR notation
+    // Include public VPN provider addresses, this option is only available for Tier 3 or higher
+    // accounts. Adds any IPs which are solely listed as VPN providers, IPs that are listed on multiple
+    // sensors will still be included without enabling this option. WARNING: This adds at least an
+    // additional 8 million IP addresses to the download if not using CIDR notation
     "include-vpn" => "false",
 
     // Output IPs using CIDR notation. This option should be preferred but is off by default for

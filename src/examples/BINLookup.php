@@ -26,71 +26,71 @@ if ($apiResponse->isOK()) {
     echo "API Response OK: \n";
     
     // The BIN or IIN number
-    echo "bin-number: ", (isset($data['bin-number'])) ? var_export($data['bin-number'], true) : "NULL", "\n";
+    echo "bin-number: ", var_export($data['bin-number'], true), "\n";
     
     // The card brand (e.g. Visa or Mastercard)
-    echo "card-brand: ", (isset($data['card-brand'])) ? var_export($data['card-brand'], true) : "NULL", "\n";
+    echo "card-brand: ", var_export($data['card-brand'], true), "\n";
     
     // The card category. There are many different card categories the most common card categories are:
     // CLASSIC, BUSINESS, CORPORATE, PLATINUM, PREPAID
-    echo "card-category: ", (isset($data['card-category'])) ? var_export($data['card-category'], true) : "NULL", "\n";
+    echo "card-category: ", var_export($data['card-category'], true), "\n";
     
     // The card type, will always be one of: DEBIT, CREDIT, CHARGE CARD
-    echo "card-type: ", (isset($data['card-type'])) ? var_export($data['card-type'], true) : "NULL", "\n";
+    echo "card-type: ", var_export($data['card-type'], true), "\n";
     
     // The full country name of the issuer
-    echo "country: ", (isset($data['country'])) ? var_export($data['country'], true) : "NULL", "\n";
+    echo "country: ", var_export($data['country'], true), "\n";
     
     // The ISO 2-letter country code of the issuer
-    echo "country-code: ", (isset($data['country-code'])) ? var_export($data['country-code'], true) : "NULL", "\n";
+    echo "country-code: ", var_export($data['country-code'], true), "\n";
     
     // The ISO 3-letter country code of the issuer
-    echo "country-code3: ", (isset($data['country-code3'])) ? var_export($data['country-code3'], true) : "NULL", "\n";
+    echo "country-code3: ", var_export($data['country-code3'], true), "\n";
     
     // ISO 4217 currency code associated with the country of the issuer
-    echo "currency-code: ", (isset($data['currency-code'])) ? var_export($data['currency-code'], true) : "NULL", "\n";
+    echo "currency-code: ", var_export($data['currency-code'], true), "\n";
     
     // True if the customers IP is listed on one of our blocklists, see the IP Blocklist API
-    echo "ip-blocklisted: ", (isset($data['ip-blocklisted'])) ? var_export($data['ip-blocklisted'], true) : "NULL", "\n";
+    echo "ip-blocklisted: ", var_export($data['ip-blocklisted'], true), "\n";
     
     // An array of strings indicating which blocklists this IP is listed on
-    echo "ip-blocklists: ", (isset($data['ip-blocklists'])) ? var_export($data['ip-blocklists'], true) : "NULL", "\n";
+    echo "ip-blocklists: ", var_export($data['ip-blocklists'], true), "\n";
     
     // The city of the customers IP (if detectable)
-    echo "ip-city: ", (isset($data['ip-city'])) ? var_export($data['ip-city'], true) : "NULL", "\n";
+    echo "ip-city: ", var_export($data['ip-city'], true), "\n";
     
     // The country of the customers IP
-    echo "ip-country: ", (isset($data['ip-country'])) ? var_export($data['ip-country'], true) : "NULL", "\n";
+    echo "ip-country: ", var_export($data['ip-country'], true), "\n";
     
     // The ISO 2-letter country code of the customers IP
-    echo "ip-country-code: ", (isset($data['ip-country-code'])) ? var_export($data['ip-country-code'], true) : "NULL", "\n";
+    echo "ip-country-code: ", var_export($data['ip-country-code'], true), "\n";
     
     // The ISO 3-letter country code of the customers IP
-    echo "ip-country-code3: ", (isset($data['ip-country-code3'])) ? var_export($data['ip-country-code3'], true) : "NULL", "\n";
+    echo "ip-country-code3: ", var_export($data['ip-country-code3'], true), "\n";
     
     // True if the customers IP country matches the BIN country
-    echo "ip-matches-bin: ", (isset($data['ip-matches-bin'])) ? var_export($data['ip-matches-bin'], true) : "NULL", "\n";
+    echo "ip-matches-bin: ", var_export($data['ip-matches-bin'], true), "\n";
     
     // The region of the customers IP (if detectable)
-    echo "ip-region: ", (isset($data['ip-region'])) ? var_export($data['ip-region'], true) : "NULL", "\n";
+    echo "ip-region: ", var_export($data['ip-region'], true), "\n";
     
     // Is this a commercial/business use card
-    echo "is-commercial: ", (isset($data['is-commercial'])) ? var_export($data['is-commercial'], true) : "NULL", "\n";
+    echo "is-commercial: ", var_export($data['is-commercial'], true), "\n";
     
     // Is this a prepaid or prepaid reloadable card
-    echo "is-prepaid: ", (isset($data['is-prepaid'])) ? var_export($data['is-prepaid'], true) : "NULL", "\n";
+    echo "is-prepaid: ", var_export($data['is-prepaid'], true), "\n";
     
     // The card issuer
-    echo "issuer: ", (isset($data['issuer'])) ? var_export($data['issuer'], true) : "NULL", "\n";
+    echo "issuer: ", var_export($data['issuer'], true), "\n";
     
     // The card issuers phone number
-    echo "issuer-phone: ", (isset($data['issuer-phone'])) ? var_export($data['issuer-phone'], true) : "NULL", "\n";
+    echo "issuer-phone: ", var_export($data['issuer-phone'], true), "\n";
     
     // The card issuers website
-    echo "issuer-website: ", (isset($data['issuer-website'])) ? var_export($data['issuer-website'], true) : "NULL", "\n";
+    echo "issuer-website: ", var_export($data['issuer-website'], true), "\n";
     
     // Is this a valid BIN or IIN number
-    echo "valid: ", (isset($data['valid'])) ? var_export($data['valid'], true) : "NULL", "\n";
+    echo "valid: ", var_export($data['valid'], true), "\n";
 } else {
     error_log(sprintf("API Error: %s, Error Code: %d, HTTP Status Code: %d", $apiResponse->getErrorMessage(), $apiResponse->getErrorCode(), $apiResponse->getStatusCode()));
     if (strlen($apiResponse->getErrorCause()) > 0) {

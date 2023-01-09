@@ -49,67 +49,67 @@ if ($apiResponse->isOK()) {
     echo "API Response OK: \n";
     
     // The complete raw, decompressed and decoded page content. Usually will be either HTML, JSON or XML
-    echo "content: ", (isset($data['content'])) ? var_export($data['content'], true) : "NULL", "\n";
+    echo "content: ", var_export($data['content'], true), "\n";
     
     // Array containing all the elements matching the supplied selector. Each element object will
     // contain the text content, HTML content and all current element attributes
-    echo "elements: ", (isset($data['elements'])) ? var_export($data['elements'], true) : "NULL", "\n";
+    echo "elements: ", var_export($data['elements'], true), "\n";
     
     // Contains the error message if an error has occurred ('is-error' will be true)
-    echo "error-message: ", (isset($data['error-message'])) ? var_export($data['error-message'], true) : "NULL", "\n";
+    echo "error-message: ", var_export($data['error-message'], true), "\n";
     
     // If you executed any JavaScript this array holds the results as objects
-    echo "exec-results: ", (isset($data['exec-results'])) ? var_export($data['exec-results'], true) : "NULL", "\n";
+    echo "exec-results: ", var_export($data['exec-results'], true), "\n";
     
     // The redirected URL if the URL responded with an HTTP redirect
-    echo "http-redirect-url: ", (isset($data['http-redirect-url'])) ? var_export($data['http-redirect-url'], true) : "NULL", "\n";
+    echo "http-redirect-url: ", var_export($data['http-redirect-url'], true), "\n";
     
     // The HTTP status code the URL returned
-    echo "http-status-code: ", (isset($data['http-status-code'])) ? var_export($data['http-status-code'], true) : "NULL", "\n";
+    echo "http-status-code: ", var_export($data['http-status-code'], true), "\n";
     
     // The HTTP status message the URL returned
-    echo "http-status-message: ", (isset($data['http-status-message'])) ? var_export($data['http-status-message'], true) : "NULL", "\n";
+    echo "http-status-message: ", var_export($data['http-status-message'], true), "\n";
     
     // True if an error has occurred loading the page. Check the 'error-message' field for details
-    echo "is-error: ", (isset($data['is-error'])) ? var_export($data['is-error'], true) : "NULL", "\n";
+    echo "is-error: ", var_export($data['is-error'], true), "\n";
     
     // True if the HTTP status is OK (200)
-    echo "is-http-ok: ", (isset($data['is-http-ok'])) ? var_export($data['is-http-ok'], true) : "NULL", "\n";
+    echo "is-http-ok: ", var_export($data['is-http-ok'], true), "\n";
     
     // True if the URL responded with an HTTP redirect
-    echo "is-http-redirect: ", (isset($data['is-http-redirect'])) ? var_export($data['is-http-redirect'], true) : "NULL", "\n";
+    echo "is-http-redirect: ", var_export($data['is-http-redirect'], true), "\n";
     
     // True if the page is secured using TLS/SSL
-    echo "is-secure: ", (isset($data['is-secure'])) ? var_export($data['is-secure'], true) : "NULL", "\n";
+    echo "is-secure: ", var_export($data['is-secure'], true), "\n";
     
     // True if a timeout occurred while loading the page. You can set the timeout with the request
     // parameter 'timeout'
-    echo "is-timeout: ", (isset($data['is-timeout'])) ? var_export($data['is-timeout'], true) : "NULL", "\n";
+    echo "is-timeout: ", var_export($data['is-timeout'], true), "\n";
     
     // The ISO 2-letter language code of the page. Extracted from either the HTML document or via HTTP
     // headers
-    echo "language-code: ", (isset($data['language-code'])) ? var_export($data['language-code'], true) : "NULL", "\n";
+    echo "language-code: ", var_export($data['language-code'], true), "\n";
     
     // The number of seconds taken to load the page (from initial request until DOM ready)
-    echo "load-time: ", (isset($data['load-time'])) ? var_export($data['load-time'], true) : "NULL", "\n";
+    echo "load-time: ", var_export($data['load-time'], true), "\n";
     
     // The document MIME type
-    echo "mime-type: ", (isset($data['mime-type'])) ? var_export($data['mime-type'], true) : "NULL", "\n";
+    echo "mime-type: ", var_export($data['mime-type'], true), "\n";
     
     // Map containing all the HTTP response headers the URL responded with
-    echo "response-headers: ", (isset($data['response-headers'])) ? var_export($data['response-headers'], true) : "NULL", "\n";
+    echo "response-headers: ", var_export($data['response-headers'], true), "\n";
     
     // Map containing details of the TLS/SSL setup
-    echo "security-details: ", (isset($data['security-details'])) ? var_export($data['security-details'], true) : "NULL", "\n";
+    echo "security-details: ", var_export($data['security-details'], true), "\n";
     
     // The HTTP servers IP address
-    echo "server-ip: ", (isset($data['server-ip'])) ? var_export($data['server-ip'], true) : "NULL", "\n";
+    echo "server-ip: ", var_export($data['server-ip'], true), "\n";
     
     // The document title
-    echo "title: ", (isset($data['title'])) ? var_export($data['title'], true) : "NULL", "\n";
+    echo "title: ", var_export($data['title'], true), "\n";
     
     // The page URL
-    echo "url: ", (isset($data['url'])) ? var_export($data['url'], true) : "NULL", "\n";
+    echo "url: ", var_export($data['url'], true), "\n";
 } else {
     error_log(sprintf("API Error: %s, Error Code: %d, HTTP Status Code: %d", $apiResponse->getErrorMessage(), $apiResponse->getErrorCode(), $apiResponse->getStatusCode()));
     if (strlen($apiResponse->getErrorCause()) > 0) {

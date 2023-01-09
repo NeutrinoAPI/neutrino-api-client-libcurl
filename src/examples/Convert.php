@@ -28,22 +28,22 @@ if ($apiResponse->isOK()) {
     echo "API Response OK: \n";
     
     // The type of the value being converted from
-    echo "from-type: ", (isset($data['from-type'])) ? var_export($data['from-type'], true) : "NULL", "\n";
+    echo "from-type: ", var_export($data['from-type'], true), "\n";
     
     // The value being converted from
-    echo "from-value: ", (isset($data['from-value'])) ? var_export($data['from-value'], true) : "NULL", "\n";
+    echo "from-value: ", var_export($data['from-value'], true), "\n";
     
     // The result of the conversion in string format
-    echo "result: ", (isset($data['result'])) ? var_export($data['result'], true) : "NULL", "\n";
+    echo "result: ", var_export($data['result'], true), "\n";
     
     // The result of the conversion as a floating-point number
-    echo "result-float: ", (isset($data['result-float'])) ? var_export($data['result-float'], true) : "NULL", "\n";
+    echo "result-float: ", var_export($data['result-float'], true), "\n";
     
     // The type being converted to
-    echo "to-type: ", (isset($data['to-type'])) ? var_export($data['to-type'], true) : "NULL", "\n";
+    echo "to-type: ", var_export($data['to-type'], true), "\n";
     
     // True if the conversion was successful and produced a valid result
-    echo "valid: ", (isset($data['valid'])) ? var_export($data['valid'], true) : "NULL", "\n";
+    echo "valid: ", var_export($data['valid'], true), "\n";
 } else {
     error_log(sprintf("API Error: %s, Error Code: %d, HTTP Status Code: %d", $apiResponse->getErrorMessage(), $apiResponse->getErrorCode(), $apiResponse->getStatusCode()));
     if (strlen($apiResponse->getErrorCause()) > 0) {

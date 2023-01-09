@@ -28,7 +28,7 @@ if ($apiResponse->isOK()) {
     echo "API Response OK: \n";
     
     // True if the code is valid
-    echo "verified: ", (isset($data['verified'])) ? var_export($data['verified'], true) : "NULL", "\n";
+    echo "verified: ", var_export($data['verified'], true), "\n";
 } else {
     error_log(sprintf("API Error: %s, Error Code: %d, HTTP Status Code: %d", $apiResponse->getErrorMessage(), $apiResponse->getErrorCode(), $apiResponse->getStatusCode()));
     if (strlen($apiResponse->getErrorCause()) > 0) {

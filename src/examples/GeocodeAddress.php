@@ -54,41 +54,41 @@ if ($apiResponse->isOK()) {
     echo "API Response OK: \n";
     
     // The number of possible matching locations found
-    echo "found: ", (isset($data['found'])) ? var_export($data['found'], true) : "NULL", "\n";
+    echo "found: ", var_export($data['found'], true), "\n";
     
     // Array of matching location objects
     $locations = $data['locations'];
     echo "locations:\n";
     foreach ($locations as $locationsItem) {
 
-        // The fully formatted address
-        echo "    address: ", (isset($locationsItem['address'])) ? var_export($locationsItem['address'], true) : "NULL", "\n";
+        // The complete address using comma-separated values
+        echo "    address: ", var_export($locationsItem['address'], true), "\n";
 
         // The components which make up the address such as road, city, state, etc
-        echo "    address-components: ", (isset($locationsItem['address-components'])) ? var_export($locationsItem['address-components'], true) : "NULL", "\n";
+        echo "    address-components: ", var_export($locationsItem['address-components'], true), "\n";
 
         // The city of the location
-        echo "    city: ", (isset($locationsItem['city'])) ? var_export($locationsItem['city'], true) : "NULL", "\n";
+        echo "    city: ", var_export($locationsItem['city'], true), "\n";
 
         // The country of the location
-        echo "    country: ", (isset($locationsItem['country'])) ? var_export($locationsItem['country'], true) : "NULL", "\n";
+        echo "    country: ", var_export($locationsItem['country'], true), "\n";
 
         // The ISO 2-letter country code of the location
-        echo "    country-code: ", (isset($locationsItem['country-code'])) ? var_export($locationsItem['country-code'], true) : "NULL", "\n";
+        echo "    country-code: ", var_export($locationsItem['country-code'], true), "\n";
 
         // The ISO 3-letter country code of the location
-        echo "    country-code3: ", (isset($locationsItem['country-code3'])) ? var_export($locationsItem['country-code3'], true) : "NULL", "\n";
+        echo "    country-code3: ", var_export($locationsItem['country-code3'], true), "\n";
 
         // ISO 4217 currency code associated with the country
-        echo "    currency-code: ", (isset($locationsItem['currency-code'])) ? var_export($locationsItem['currency-code'], true) : "NULL", "\n";
+        echo "    currency-code: ", var_export($locationsItem['currency-code'], true), "\n";
 
         // The location latitude
-        echo "    latitude: ", (isset($locationsItem['latitude'])) ? var_export($locationsItem['latitude'], true) : "NULL", "\n";
+        echo "    latitude: ", var_export($locationsItem['latitude'], true), "\n";
 
         // Array of strings containing any location tags associated with the address. Tags are additional
         // pieces of metadata about a specific location, there are thousands of different tags. Some
         // examples of tags: shop, office, cafe, bank, pub
-        echo "    location-tags: ", (isset($locationsItem['location-tags'])) ? var_export($locationsItem['location-tags'], true) : "NULL", "\n";
+        echo "    location-tags: ", var_export($locationsItem['location-tags'], true), "\n";
 
         // The detected location type ordered roughly from most to least precise, possible values are:
         // • address - indicates a precise street address
@@ -100,19 +100,25 @@ if ($apiResponse->isOK()) {
         // • natural - indicates a natural feature, for example a mountain peak or a waterway
         // • island - location is an island or archipelago
         // • administrative - indicates an administrative boundary such as a country, state or province
-        echo "    location-type: ", (isset($locationsItem['location-type'])) ? var_export($locationsItem['location-type'], true) : "NULL", "\n";
+        echo "    location-type: ", var_export($locationsItem['location-type'], true), "\n";
 
         // The location longitude
-        echo "    longitude: ", (isset($locationsItem['longitude'])) ? var_export($locationsItem['longitude'], true) : "NULL", "\n";
+        echo "    longitude: ", var_export($locationsItem['longitude'], true), "\n";
+
+        // The formatted address using local standards suitable for printing on an envelope
+        echo "    postal-address: ", var_export($locationsItem['postal-address'], true), "\n";
 
         // The postal code for the location
-        echo "    postal-code: ", (isset($locationsItem['postal-code'])) ? var_export($locationsItem['postal-code'], true) : "NULL", "\n";
+        echo "    postal-code: ", var_export($locationsItem['postal-code'], true), "\n";
+
+        // The ISO 3166-2 region code for the location
+        echo "    region-code: ", var_export($locationsItem['region-code'], true), "\n";
 
         // The state of the location
-        echo "    state: ", (isset($locationsItem['state'])) ? var_export($locationsItem['state'], true) : "NULL", "\n";
+        echo "    state: ", var_export($locationsItem['state'], true), "\n";
 
         // Map containing timezone details for the location
-        echo "    timezone: ", (isset($locationsItem['timezone'])) ? var_export($locationsItem['timezone'], true) : "NULL", "\n";
+        echo "    timezone: ", var_export($locationsItem['timezone'], true), "\n";
         echo "\n";
     }
 } else {

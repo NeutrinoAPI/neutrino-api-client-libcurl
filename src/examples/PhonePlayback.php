@@ -37,10 +37,10 @@ if ($apiResponse->isOK()) {
     echo "API Response OK: \n";
     
     // True if the call is being made now
-    echo "calling: ", (isset($data['calling'])) ? var_export($data['calling'], true) : "NULL", "\n";
+    echo "calling: ", var_export($data['calling'], true), "\n";
     
     // True if this a valid phone number
-    echo "number-valid: ", (isset($data['number-valid'])) ? var_export($data['number-valid'], true) : "NULL", "\n";
+    echo "number-valid: ", var_export($data['number-valid'], true), "\n";
 } else {
     error_log(sprintf("API Error: %s, Error Code: %d, HTTP Status Code: %d", $apiResponse->getErrorMessage(), $apiResponse->getErrorCode(), $apiResponse->getStatusCode()));
     if (strlen($apiResponse->getErrorCause()) > 0) {

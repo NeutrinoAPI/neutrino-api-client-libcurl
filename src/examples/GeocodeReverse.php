@@ -95,7 +95,7 @@ if ($apiResponse->isOK()) {
     // The state of the location
     echo "state: ", var_export($data['state'], true), "\n";
     
-    // Map containing timezone details for the location
+    // Map containing timezone details
     echo "timezone: ", var_export($data['timezone'], true), "\n";
 } else {
     error_log(sprintf("API Error: %s, Error Code: %d, HTTP Status Code: %d", $apiResponse->getErrorMessage(), $apiResponse->getErrorCode(), $apiResponse->getStatusCode()));

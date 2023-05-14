@@ -73,7 +73,7 @@ if ($apiResponse->isOK()) {
     // ISO 3166-2 region code (if detectable)
     echo "region-code: ", var_export($data['region-code'], true), "\n";
     
-    // Map containing timezone details for the location
+    // Map containing timezone details
     echo "timezone: ", var_export($data['timezone'], true), "\n";
     
     // True if this is a valid IPv4 or IPv6 address

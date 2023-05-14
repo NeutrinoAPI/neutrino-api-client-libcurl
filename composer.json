@@ -15,7 +15,7 @@
         "ext-curl": "*",
         "ext-json": "*"
     },
-    "version": "4.6.10",
+    "version": "4.6.11",
     "description": "PHP client using the libcURL extension",
     "license": "MIT"
 }

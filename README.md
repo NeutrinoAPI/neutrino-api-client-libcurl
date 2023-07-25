@@ -11,7 +11,7 @@ The official API client and SDK built by [NeutrinoAPI](https://www.neutrinoapi.c
 | JSON Library     | Native |
 | HTTP/2           | Yes    |
 | HTTP/3           | No     |
-| CodeGen Version  | 4.6.11 |
+| CodeGen Version  | 4.6.12 |
 
 ## Getting started
 
@@ -19,17 +19,19 @@ First you will need a user ID and API key pair: [SignUp](https://www.neutrinoapi
 
 ## To Initialize 
 ```php
-use NeutrinoAPI\NeutrinoAPIClient;
-
-$neutrinoAPI = new NeutrinoAPI('<your-user-id>', '<your-api-key>');
+$neutrinoAPI = new NeutrinoAPI\NeutrinoAPIClient('<your-user-id>', '<your-api-key>');
 ```
 
 ## Running Examples
-
 ```sh
-$ php src/examples/BadWordFilter.php
+$ php src/examples/IPInfo.php
 ```
 You can find examples of all APIs in _src/examples/_
+
+## Install using Composer
+```sh
+$ composer require neutrino_api/neutrino_api_client
+```
 
 ## For Support 
 [Contact us](https://www.neutrinoapi.com/contact-us/)

@@ -1,16 +1,11 @@
 <?php
-use NeutrinoAPI\NeutrinoAPIClient;
-
-spl_autoload_register(function ($className) {
-    if (strpos($className, "NeutrinoAPI\\") === 0) {
-        $classFile = explode('\\', $className)[1].'.php';
-        include realpath(__DIR__ . "/../client/$classFile");
-    }
-});
+require __DIR__ . '/../client/APIErrorCode.php';
+require __DIR__ . '/../client/APIResponse.php';
+require __DIR__ . '/../client/NeutrinoAPIClient.php';
 
 $tmpFile = tempnam(sys_get_temp_dir(), "html-render-") . ".pdf";
 
-$neutrinoAPIClient = new NeutrinoAPIClient("<your-user-id>", "<your-api-key>");
+$neutrinoAPIClient = new NeutrinoAPI\NeutrinoAPIClient("<your-user-id>", "<your-api-key>");
 
 $params = array(
 
@@ -80,6 +75,10 @@ $params = array(
 
     // The document bottom margin (in mm)
     "margin-bottom" => "0",
+
+    // For image rendering set the background color in hexadecimal notation (e.g. #0000ff). For PNG
+    // output the special value of 'transparent' can be used to create a transparent PNG
+    "bg-color" => "",
 
     // Set the document to landscape orientation
     "landscape" => "false"

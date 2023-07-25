@@ -1,14 +1,9 @@
 <?php
-use NeutrinoAPI\NeutrinoAPIClient;
+require __DIR__ . '/../client/APIErrorCode.php';
+require __DIR__ . '/../client/APIResponse.php';
+require __DIR__ . '/../client/NeutrinoAPIClient.php';
 
-spl_autoload_register(function ($className) {
-    if (strpos($className, "NeutrinoAPI\\") === 0) {
-        $classFile = explode('\\', $className)[1].'.php';
-        include realpath(__DIR__ . "/../client/$classFile");
-    }
-});
-
-$neutrinoAPIClient = new NeutrinoAPIClient("<your-user-id>", "<your-api-key>");
+$neutrinoAPIClient = new NeutrinoAPI\NeutrinoAPIClient("<your-user-id>", "<your-api-key>");
 
 $params = array(
 
@@ -39,6 +34,9 @@ $params = array(
     // Limit the total number of SMS allowed to the supplied phone number, if the limit is reached
     // within the TTL then error code 14 will be returned
     "limit" => "10",
+
+    // Set a custom brand or product name in the verification message
+    "brand-name" => "",
 
     // Set the TTL in number of days that the 'limit' option will remember a phone number (the default
     // is 1 day and the maximum is 365 days)

@@ -15,7 +15,9 @@
         "ext-curl": "*",
         "ext-json": "*"
     },
-    "version": "4.6.11",
+    "version": "4.6.12",
     "description": "PHP client using the libcURL extension",
-    "license": "MIT"
+    "license": "MIT",
+    "homepage": "https://www.neutrinoapi.com/",
+    "keywords": ["neutrino-api", "api", "data", "geolocation", "telephony", "security", "rendering", "e-commerce"]
 }

@@ -1,14 +1,9 @@
 <?php
-use NeutrinoAPI\NeutrinoAPIClient;
+require __DIR__ . '/../client/APIErrorCode.php';
+require __DIR__ . '/../client/APIResponse.php';
+require __DIR__ . '/../client/NeutrinoAPIClient.php';
 
-spl_autoload_register(function ($className) {
-    if (strpos($className, "NeutrinoAPI\\") === 0) {
-        $classFile = explode('\\', $className)[1].'.php';
-        include realpath(__DIR__ . "/../client/$classFile");
-    }
-});
-
-$neutrinoAPIClient = new NeutrinoAPIClient("<your-user-id>", "<your-api-key>");
+$neutrinoAPIClient = new NeutrinoAPI\NeutrinoAPIClient("<your-user-id>", "<your-api-key>");
 
 $params = array(
 

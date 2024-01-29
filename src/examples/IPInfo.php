@@ -44,7 +44,7 @@ if ($apiResponse->isOK()) {
     // The IPs full hostname (only set if reverse-lookup has been used)
     echo "hostname: ", var_export($data['hostname'], true), "\n";
     
-    // The IP address
+    // An IPv4 or IPv6 address. Accepts standard IP notation and also CIDR notation.
     echo "ip: ", var_export($data['ip'], true), "\n";
     
     // True if this is a bogon IP address such as a private network, local network or reserved address

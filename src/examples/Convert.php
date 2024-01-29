@@ -22,6 +22,12 @@ if ($apiResponse->isOK()) {
     $data = $apiResponse->getData();
     echo "API Response OK: \n";
     
+    // The full name of the type being converted from
+    echo "from-name: ", var_export($data['from-name'], true), "\n";
+    
+    // The standard UTF-8 symbol used to represent the type being converted from
+    echo "from-symbol: ", var_export($data['from-symbol'], true), "\n";
+    
     // The type of the value being converted from
     echo "from-type: ", var_export($data['from-type'], true), "\n";
     
@@ -33,6 +39,12 @@ if ($apiResponse->isOK()) {
     
     // The result of the conversion as a floating-point number
     echo "result-float: ", var_export($data['result-float'], true), "\n";
+    
+    // The full name of the type being converted to
+    echo "to-name: ", var_export($data['to-name'], true), "\n";
+    
+    // The standard UTF-8 symbol used to represent the type being converted to
+    echo "to-symbol: ", var_export($data['to-symbol'], true), "\n";
     
     // The type being converted to
     echo "to-type: ", var_export($data['to-type'], true), "\n";

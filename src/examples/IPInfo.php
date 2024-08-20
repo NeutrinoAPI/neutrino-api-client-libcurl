@@ -7,7 +7,7 @@ $neutrinoAPIClient = new NeutrinoAPI\NeutrinoAPIClient("<your-user-id>", "<your-
 
 $params = array(
 
-    // IPv4 or IPv6 address
+    // An IPv4 or IPv6 address. Accepts standard IP notation and also CIDR notation
     "ip" => "1.1.1.1",
 
     // Do a reverse DNS (PTR) lookup. This option can add extra delay to the request so only use it if
@@ -44,7 +44,7 @@ if ($apiResponse->isOK()) {
     // The IPs full hostname (only set if reverse-lookup has been used)
     echo "hostname: ", var_export($data['hostname'], true), "\n";
     
-    // An IPv4 or IPv6 address. Accepts standard IP notation and also CIDR notation.
+    // The IPv4 or IPv6 address returned
     echo "ip: ", var_export($data['ip'], true), "\n";
     
     // True if this is a bogon IP address such as a private network, local network or reserved address
@@ -68,7 +68,7 @@ if ($apiResponse->isOK()) {
     // ISO 3166-2 region code (if detectable)
     echo "region-code: ", var_export($data['region-code'], true), "\n";
     
-    // Map containing timezone details
+    // Structure of a valid ip-info -> timezone response
     echo "timezone: ", var_export($data['timezone'], true), "\n";
     
     // True if this is a valid IPv4 or IPv6 address

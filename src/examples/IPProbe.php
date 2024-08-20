@@ -7,7 +7,7 @@ $neutrinoAPIClient = new NeutrinoAPI\NeutrinoAPIClient("<your-user-id>", "<your-
 
 $params = array(
 
-    // IPv4 or IPv6 address
+    // An IPv4 or IPv6 address. Accepts standard IP notation and also CIDR notation
     "ip" => "194.233.98.38"
 );
 
@@ -61,7 +61,7 @@ if ($apiResponse->isOK()) {
     // The IPs full hostname (PTR)
     echo "hostname: ", var_export($data['hostname'], true), "\n";
     
-    // The IP address
+    // The IPv4 or IPv6 address returned
     echo "ip: ", var_export($data['ip'], true), "\n";
     
     // True if this is a bogon IP address such as a private network, local network or reserved address
@@ -75,7 +75,7 @@ if ($apiResponse->isOK()) {
     // the provider type is VPN/proxy, this occurs in the case that the IP is detected as both types
     echo "is-isp: ", var_export($data['is-isp'], true), "\n";
     
-    // True if this IP ia a proxy
+    // True if this IP is a proxy
     echo "is-proxy: ", var_export($data['is-proxy'], true), "\n";
     
     // True if this is a IPv4 mapped IPv6 address

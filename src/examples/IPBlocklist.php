@@ -22,7 +22,22 @@ if ($apiResponse->isOK()) {
     $data = $apiResponse->getData();
     echo "API Response OK: \n";
     
-    // An array of strings indicating which blocklist categories this IP is listed on
+    // An array of strings indicating which blocklist categories this IP is listed on. Current possible
+    // values are:
+    // • tor - IP is a Tor node or running a Tor related service
+    // • proxy - IP has been detected as an anonymous web proxy or HTTP proxy
+    // • vpn - IP belongs to a public VPN provider
+    // • bot - IP is hosting a malicious bot or is part of a botnet. This is a broad category which
+    //   includes brute-force crackers
+    // • spam-bot - IP address is hosting a spam bot, comment spamming or any other spamming type
+    //   software
+    // • exploit-bot - IP is hosting an exploit finding bot or is running exploit scanning software
+    // • hijacked - IP is part of a hijacked netblock or a netblock controlled by a criminal
+    //   organization
+    // • malware - IP is currently involved in distributing or is running malware
+    // • spyware - IP is currently involved in distributing or is running spyware
+    // • spider - IP is running a hostile web spider / web crawler
+    // • dshield - IP has been flagged as a significant attack source by DShield (dshield.org)
     echo "blocklists: ", var_export($data['blocklists'], true), "\n";
     
     // The CIDR address for this listing (only set if the IP is listed)

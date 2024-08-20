@@ -9,6 +9,9 @@ $neutrinoAPIClient = new NeutrinoAPI\NeutrinoAPIClient("<your-user-id>", "<your-
 
 $params = array(
 
+    // The barcode format to output. Accepted formats are: qr, c128
+    "code-format" => "qr",
+
     // The width of the QR code (in px)
     "width" => "256",
 

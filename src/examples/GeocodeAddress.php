@@ -112,7 +112,7 @@ if ($apiResponse->isOK()) {
         // The state of the location
         echo "    state: ", var_export($locationsItem['state'], true), "\n";
 
-        // Map containing timezone details
+        // Structure of a valid ip-info -> timezone response
         echo "    timezone: ", var_export($locationsItem['timezone'], true), "\n";
         echo "\n";
     }

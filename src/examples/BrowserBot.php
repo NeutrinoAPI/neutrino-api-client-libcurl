@@ -46,9 +46,27 @@ if ($apiResponse->isOK()) {
     // The complete raw, decompressed and decoded page content. Usually will be either HTML, JSON or XML
     echo "content: ", var_export($data['content'], true), "\n";
     
-    // Array containing all the elements matching the supplied selector. Each element object will
-    // contain the text content, HTML content and all current element attributes
-    echo "elements: ", var_export($data['elements'], true), "\n";
+    // Array containing all the elements matching the supplied selector
+    $elements = $data['elements'];
+    echo "elements:\n";
+    foreach ($elements as $elementsItem) {
+
+        // The 'class' attribute of the element
+        echo "    class: ", var_export($elementsItem['class'], true), "\n";
+
+        // The 'href' attribute of the element
+        echo "    href: ", var_export($elementsItem['href'], true), "\n";
+
+        // The raw HTML of the element
+        echo "    html: ", var_export($elementsItem['html'], true), "\n";
+
+        // The 'id' attribute of the element
+        echo "    id: ", var_export($elementsItem['id'], true), "\n";
+
+        // The plain-text content of the element with normalized whitespace
+        echo "    text: ", var_export($elementsItem['text'], true), "\n";
+        echo "\n";
+    }
     
     // Contains the error message if an error has occurred ('is-error' will be true)
     echo "error-message: ", var_export($data['error-message'], true), "\n";

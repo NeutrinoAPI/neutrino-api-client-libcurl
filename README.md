@@ -11,7 +11,7 @@ The official API client and SDK built by [NeutrinoAPI](https://www.neutrinoapi.c
 | JSON Library     | Native |
 | HTTP/2           | Yes    |
 | HTTP/3           | No     |
-| CodeGen Version  | 4.6.15 |
+| CodeGen Version  | 4.6.16 |
 
 ## Getting started
 

@@ -3,10 +3,10 @@
 namespace NeutrinoAPI;
 
 define('HTTP_VERSION', CURL_HTTP_VERSION_2TLS); // CURL_HTTP_VERSION_1_1 or CURL_HTTP_VERSION_2TLS
-define('Multicloud', 'https://neutrinoapi.net/');
-define('AWS', 'https://aws.neutrinoapi.net/');
-define('GCP', 'https://gcp.neutrinoapi.net/');
-define('Backup', 'https://neutrinoapi.com/');
+define('MULTICLOUD_ENDPOINT', 'https://neutrinoapi.net/');
+define('AWS_ENDPOINT', 'https://aws.neutrinoapi.net/');
+define('GCP_ENDPOINT', 'https://gcp.neutrinoapi.net/');
+define('BACKUP_ENDPOINT', 'https://neutrinoapi.com/');
 
 /**
  * Make a request to the Neutrino API
@@ -39,7 +39,7 @@ class NeutrinoAPIClient
     {
         $this->userID = $userID;
         $this->apiKey = $apiKey;
-        $this->baseURL = (isset($baseURL)) ? $baseURL : Multicloud;
+        $this->baseURL = (isset($baseURL)) ? $baseURL : MULTICLOUD_ENDPOINT;
     }
 
     /**

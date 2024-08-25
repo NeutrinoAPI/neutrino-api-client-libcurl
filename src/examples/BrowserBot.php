@@ -46,6 +46,9 @@ if ($apiResponse->isOK()) {
     // The complete raw, decompressed and decoded page content. Usually will be either HTML, JSON or XML
     echo "content: ", var_export($data['content'], true), "\n";
     
+    // The size of the returned content in bytes
+    echo "content-size: ", var_export($data['content-size'], true), "\n";
+    
     // Array containing all the elements matching the supplied selector
     $elements = $data['elements'];
     echo "elements:\n";
@@ -72,7 +75,17 @@ if ($apiResponse->isOK()) {
     echo "error-message: ", var_export($data['error-message'], true), "\n";
     
     // If you executed any JavaScript this array holds the results as objects
-    echo "exec-results: ", var_export($data['exec-results'], true), "\n";
+    $execResults = $data['exec-results'];
+    echo "exec-results:\n";
+    foreach ($execResults as $execResultsItem) {
+
+        // The result of the executed JavaScript statement. Will be empty if the statement returned nothing
+        echo "    result: ", var_export($execResultsItem['result'], true), "\n";
+
+        // The JavaScript statement that was executed
+        echo "    statement: ", var_export($execResultsItem['statement'], true), "\n";
+        echo "\n";
+    }
     
     // The redirected URL if the URL responded with an HTTP redirect
     echo "http-redirect-url: ", var_export($data['http-redirect-url'], true), "\n";
@@ -115,14 +128,24 @@ if ($apiResponse->isOK()) {
     // Map containing details of the TLS/SSL setup
     echo "security-details: ", var_export($data['security-details'], true), "\n";
     
+    // The HTTP servers hostname (PTR/RDNS record)
+    echo "server-hostname: ", var_export($data['server-hostname'], true), "\n";
+    
     // The HTTP servers IP address
     echo "server-ip: ", var_export($data['server-ip'], true), "\n";
     
     // The document title
     echo "title: ", var_export($data['title'], true), "\n";
     
-    // The page URL
+    // The requested URL. This may not be the same as the final destination URL, if the URL redirects
+    // then it will be set in 'http-redirect-url' and 'is-http-redirect' will also be true
     echo "url: ", var_export($data['url'], true), "\n";
+    
+    // Structure of a browser-bot -> url-components response
+    echo "url-components: ", var_export($data['url-components'], true), "\n";
+    
+    // True if the URL supplied is valid
+    echo "url-valid: ", var_export($data['url-valid'], true), "\n";
 } else {
     error_log(sprintf("API Error: %s, Error Code: %d, HTTP Status Code: %d", $apiResponse->getErrorMessage(), $apiResponse->getErrorCode(), $apiResponse->getStatusCode()));
     if (strlen($apiResponse->getErrorCause()) > 0) {

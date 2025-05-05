@@ -77,6 +77,9 @@ if ($apiResponse->isOK()) {
         // ISO 4217 currency code associated with the country
         echo "    currency-code: ", var_export($locationsItem['currency-code'], true), "\n";
 
+        // The ISO 2-letter language code for the official language spoken in the country
+        echo "    language-code: ", var_export($locationsItem['language-code'], true), "\n";
+
         // The location latitude
         echo "    latitude: ", var_export($locationsItem['latitude'], true), "\n";
 
@@ -112,7 +115,7 @@ if ($apiResponse->isOK()) {
         // The state of the location
         echo "    state: ", var_export($locationsItem['state'], true), "\n";
 
-        // Structure of a ip-info -> timezone response
+        // Structure of timezone
         echo "    timezone: ", var_export($locationsItem['timezone'], true), "\n";
         echo "\n";
     }

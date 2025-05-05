@@ -141,7 +141,7 @@ if ($apiResponse->isOK()) {
     // then it will be set in 'http-redirect-url' and 'is-http-redirect' will also be true
     echo "url: ", var_export($data['url'], true), "\n";
     
-    // Structure of a browser-bot -> url-components response
+    // Structure of url-components
     echo "url-components: ", var_export($data['url-components'], true), "\n";
     
     // True if the URL supplied is valid

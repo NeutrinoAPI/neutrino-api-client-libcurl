@@ -56,6 +56,9 @@ if ($apiResponse->isOK()) {
     // True if this is a IPv6 address. False if IPv4
     echo "is-v6: ", var_export($data['is-v6'], true), "\n";
     
+    // The ISO 2-letter language code for the official language spoken in the country
+    echo "language-code: ", var_export($data['language-code'], true), "\n";
+    
     // Location latitude
     echo "latitude: ", var_export($data['latitude'], true), "\n";
     
@@ -68,7 +71,7 @@ if ($apiResponse->isOK()) {
     // ISO 3166-2 region code (if detectable)
     echo "region-code: ", var_export($data['region-code'], true), "\n";
     
-    // Structure of a ip-info -> timezone response
+    // Structure of timezone
     echo "timezone: ", var_export($data['timezone'], true), "\n";
     
     // True if this is a valid IPv4 or IPv6 address

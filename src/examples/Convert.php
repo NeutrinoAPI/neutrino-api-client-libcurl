@@ -14,7 +14,13 @@ $params = array(
     "from-type" => "USD",
 
     // The type to convert to (e.g. EUR)
-    "to-type" => "EUR"
+    "to-type" => "EUR",
+
+    // Convert using the rate on a historical date, accepted date formats are: YYYY-MM-DD, YYYY-MM,
+    // YYYY. Historical rates are stored with daily granularity so the date format YYYY-MM-DD is
+    // preferred for the highest precision. If an invalid date or a date too far into the past is
+    // supplied then the API will respond with 'valid' as false and an empty 'historical-date'
+    "historical-date" => ""
 );
 
 $apiResponse = $neutrinoAPIClient->convert($params);
@@ -33,6 +39,10 @@ if ($apiResponse->isOK()) {
     
     // The value being converted from
     echo "from-value: ", var_export($data['from-value'], true), "\n";
+    
+    // If a historical conversion was made using the 'historical-date' request option this will contain
+    // the exact date used for the conversion in ISO format: YYYY-MM-DD
+    echo "historical-date: ", var_export($data['historical-date'], true), "\n";
     
     // The result of the conversion in string format
     echo "result: ", var_export($data['result'], true), "\n";

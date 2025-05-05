@@ -3,10 +3,15 @@
 namespace NeutrinoAPI;
 
 define('HTTP_VERSION', CURL_HTTP_VERSION_2TLS); // CURL_HTTP_VERSION_1_1 or CURL_HTTP_VERSION_2TLS
+define('DEFAULT_CONNECT_TIMEOUT', 10); // seconds
+
 define('MULTICLOUD_ENDPOINT', 'https://neutrinoapi.net/');
 define('AWS_ENDPOINT', 'https://aws.neutrinoapi.net/');
 define('GCP_ENDPOINT', 'https://gcp.neutrinoapi.net/');
 define('BACKUP_ENDPOINT', 'https://neutrinoapi.com/');
+define('EU_GEOFENCE_ENDPOINT', 'https://eu.neutrinoapi.net/');
+define('AU_GEOFENCE_ENDPOINT', 'https://aus.neutrinoapi.net/');
+define('US_GEOFENCE_ENDPOINT', 'https://usa.neutrinoapi.net/');
 
 /**
  * Make a request to the Neutrino API
@@ -127,6 +132,7 @@ class NeutrinoAPIClient
      * - from-value: The value to convert from (e.g. 10.95)
      * - from-type: The type of the value to convert from (e.g. USD)
      * - to-type: The type to convert to (e.g. EUR)
+     * - historical-date: Convert using the rate on a historical date
      *
      * @param string[] $params The API request parameters
      * @return APIResponse
@@ -151,7 +157,7 @@ class NeutrinoAPIClient
      */
     public function domainLookup(array $params): APIResponse
     {
-        return $this->execRequest('GET', 'domain-lookup', $params, null, 120);
+        return $this->execRequest('GET', 'domain-lookup', $params, null, 300);
     }
 
     /**
@@ -185,7 +191,7 @@ class NeutrinoAPIClient
      */
     public function emailVerify(array $params): APIResponse
     {
-        return $this->execRequest('GET', 'email-verify', $params, null, 120);
+        return $this->execRequest('GET', 'email-verify', $params, null, 300);
     }
 
     /**
@@ -264,7 +270,7 @@ class NeutrinoAPIClient
      */
     public function hostReputation(array $params): APIResponse
     {
-        return $this->execRequest('GET', 'host-reputation', $params, null, 120);
+        return $this->execRequest('GET', 'host-reputation', $params, null, 300);
     }
 
     /**
@@ -345,7 +351,7 @@ class NeutrinoAPIClient
      */
     public function imageResize(array $params, string $outputFilePath): APIResponse
     {
-        return $this->execRequest('POST', 'image-resize', $params, $outputFilePath, 20);
+        return $this->execRequest('POST', 'image-resize', $params, $outputFilePath, 30);
     }
 
     /**
@@ -370,7 +376,7 @@ class NeutrinoAPIClient
      */
     public function imageWatermark(array $params, string $outputFilePath): APIResponse
     {
-        return $this->execRequest('POST', 'image-watermark', $params, $outputFilePath, 20);
+        return $this->execRequest('POST', 'image-watermark', $params, $outputFilePath, 30);
     }
 
     /**
@@ -442,7 +448,7 @@ class NeutrinoAPIClient
      */
     public function ipProbe(array $params): APIResponse
     {
-        return $this->execRequest('GET', 'ip-probe', $params, null, 120);
+        return $this->execRequest('GET', 'ip-probe', $params, null, 300);
     }
 
     /**
@@ -524,7 +530,7 @@ class NeutrinoAPIClient
      */
     public function qrCode(array $params, string $outputFilePath): APIResponse
     {
-        return $this->execRequest('POST', 'qr-code', $params, $outputFilePath, 20);
+        return $this->execRequest('POST', 'qr-code', $params, $outputFilePath, 30);
     }
 
     /**
@@ -630,6 +636,7 @@ class NeutrinoAPIClient
                 "User-ID: " . $this->userID,
                 "API-Key: " . $this->apiKey
             ],
+            CURLOPT_CONNECTTIMEOUT => DEFAULT_CONNECT_TIMEOUT,
             CURLOPT_TIMEOUT => $readTimeoutInSeconds,
             CURLOPT_HTTP_VERSION => HTTP_VERSION
         ]);

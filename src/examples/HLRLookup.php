@@ -87,6 +87,10 @@ if ($apiResponse->isOK()) {
     // The mobile MSIN number (Mobile Subscription Identification Number)
     echo "msin: ", var_export($data['msin'], true), "\n";
     
+    // Contains any additional details about the current network such as former network names and mobile
+    // technology utilized
+    echo "network-tags: ", var_export($data['network-tags'], true), "\n";
+    
     // The number type, possible values are:
     // • mobile
     // • fixed-line

@@ -3,7 +3,7 @@ require __DIR__ . '/../client/APIErrorCode.php';
 require __DIR__ . '/../client/APIResponse.php';
 require __DIR__ . '/../client/NeutrinoAPIClient.php';
 
-$tmpFile = tempnam(sys_get_temp_dir(), "bin-list-download-") . ".png";
+$tmpFile = tempnam(sys_get_temp_dir(), "bin-list-download-") . ".csv";
 
 $neutrinoAPIClient = new NeutrinoAPI\NeutrinoAPIClient("<your-user-id>", "<your-api-key>");
 

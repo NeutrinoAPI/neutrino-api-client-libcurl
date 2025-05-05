@@ -55,6 +55,9 @@ if ($apiResponse->isOK()) {
     // True if these coordinates map to a real location
     echo "found: ", var_export($data['found'], true), "\n";
     
+    // The ISO 2-letter language code for the official language spoken in the country
+    echo "language-code: ", var_export($data['language-code'], true), "\n";
+    
     // The location latitude
     echo "latitude: ", var_export($data['latitude'], true), "\n";
     
@@ -90,7 +93,7 @@ if ($apiResponse->isOK()) {
     // The state of the location
     echo "state: ", var_export($data['state'], true), "\n";
     
-    // Structure of a ip-info -> timezone response
+    // Structure of timezone
     echo "timezone: ", var_export($data['timezone'], true), "\n";
 } else {
     error_log(sprintf("API Error: %s, Error Code: %d, HTTP Status Code: %d", $apiResponse->getErrorMessage(), $apiResponse->getErrorCode(), $apiResponse->getStatusCode()));
